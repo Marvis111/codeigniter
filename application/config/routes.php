@@ -56,3 +56,6 @@ $route['translate_uri_dashes'] = FALSE;
 //cistpm routes..
 $route['signup']['GET'] = 'Signup/index';
 $route['signup']['POST'] = 'Signup/create';
+
+$route['login']['GET'] = 'Login/index';
+$route['login']['POST'] = 'Login/find';

@@ -19,7 +19,7 @@ class Signup extends CI_Controller {
      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $password = $_POST['password'];
         $email = $_POST['email'];
-        array_push($errorArray,['field'=>"name","msg" => (empty($name) ? "Name is required" :"") ]);
+     //   array_push($errorArray,['field'=>"name","msg" => (empty($name) ? "Name is required" :"") ]);
         array_push($errorArray,['field'=>"email","msg" => (!filter_var($email,FILTER_VALIDATE_EMAIL) ? "Email is required" :"") ]);
         array_push($errorArray,['field'=>"password","msg" => (empty($password) ? "Password is required" :"") ]);
 
@@ -27,11 +27,11 @@ class Signup extends CI_Controller {
         if(count($errors) == 0){
             // do the get here.. here 
             $sql = "SELECT * FROM users where email = '$email' ";
-            $query = $this->db->query($sql);
-            if($query){
-                if($this->db->fetch_assoc($query)){
-                    
-                }
+            $results = $this->db->query($sql);
+            if($results){
+                $row = $results;
+                print_r($row);
+                
             }
         
         }
