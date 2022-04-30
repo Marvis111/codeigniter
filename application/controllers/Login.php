@@ -26,6 +26,13 @@ class Signup extends CI_Controller {
         $errrors = array_filter($errorArray,'filterError');
         if(count($errors) == 0){
             // do the get here.. here 
+            $sql = "SELECT * FROM users where email = '$email' ";
+            $query = $this->db->query($sql);
+            if($query){
+                if($this->db->fetch_assoc($query)){
+                    
+                }
+            }
         
         }
 
